@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+  
   @IBOutlet var fieldsButtonCollection: [UIButton]!
   @IBOutlet weak var winnerLabel: UILabel!
   @IBOutlet weak var resetButtonOutlet: UIButton!
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
       }
       return
     }
+    
     if winnerCheck(check: noughtSet) {
       winnerLabel.text = "O Winner"
       for button in fieldsButtonCollection {
@@ -55,11 +56,9 @@ class ViewController: UIViewController {
     moveCrosses.toggle()
     button.isEnabled = false
     
-    
-    
   }
   
-
+  
   @IBAction func resetButton(_ sender: Any) {
     for button in fieldsButtonCollection {
       button.isEnabled = true
@@ -91,13 +90,12 @@ class ViewController: UIViewController {
       
       for winCombination in winnerArray {
         subtractingSet = Set(winCombination).subtracting(set)
-        print(subtractingSet)
         if subtractingSet.count == 0 {
           isWin.toggle()
         }
       }
     }
-
+    
     return isWin
   }
 }
