@@ -16,6 +16,7 @@ class ViewController: UIViewController {
   private var noughtSet  = Set<Int>()
   private var crossesSet = Set<Int>()
   private var moveCrosses = Bool.random()
+  private var pressedButtonCounter = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,10 +52,15 @@ class ViewController: UIViewController {
       return
     }
     
-    whoMove(moveCrosses: moveCrosses)
+    
     
     moveCrosses.toggle()
+    whoMove(moveCrosses: moveCrosses)
     button.isEnabled = false
+    pressedButtonCounter += 1
+    if pressedButtonCounter == 9 {
+      winnerLabel.text = "Draw"
+    }
     
   }
   
@@ -74,9 +80,9 @@ class ViewController: UIViewController {
   
   private func whoMove(moveCrosses: Bool) {
     if moveCrosses {
-      winnerLabel.text = "move O"
-    } else {
       winnerLabel.text = "move X"
+    } else {
+      winnerLabel.text = "move O"
     }
   }
   
