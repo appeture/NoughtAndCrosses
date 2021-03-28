@@ -99,6 +99,7 @@ class ViewController: UIViewController {
         subtractingSet = Set(winCombination).subtracting(set)
         if subtractingSet.count == 0 {
           isWin.toggle()
+          break
         }
       }
     }
