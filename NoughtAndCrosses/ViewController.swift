@@ -73,6 +73,7 @@ class ViewController: UIViewController {
     
     noughtSet = []
     crossesSet = []
+    pressedButtonCounter = 0
     winnerLabel.text = ""
     moveCrosses = Bool.random()
     whoMove(moveCrosses: moveCrosses)
